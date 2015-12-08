@@ -14,7 +14,7 @@ describe 'logstash', :type => 'class' do
 
       let :params do {
         :manage_repo => true,
-        :repo_version => 1.3
+        :repo_version => 2.1
       } end
 
       it { should contain_class('logstash::repo').that_requires('Anchor[logstash::begin]') }
@@ -25,7 +25,7 @@ describe 'logstash', :type => 'class' do
 
       let :params do {
         :manage_repo => true,
-        :repo_version => 1.3,
+        :repo_version => 2.1,
         :repo_stage => 'setup'
       } end
 

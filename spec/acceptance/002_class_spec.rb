@@ -20,7 +20,7 @@ describe "logstash class:" do
   describe "default parameters" do
 
     it 'should run successfully' do
-      pp = "class { 'logstash': manage_repo => true, repo_version => '1.4', java_install => true }
+      pp = "class { 'logstash': manage_repo => true, repo_version => '2.1', java_install => true }
             logstash::configfile { 'basic_config': content => 'input { tcp { port => 2000 } } output { null { } } ' }
            "
 

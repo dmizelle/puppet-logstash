@@ -51,12 +51,12 @@ describe 'logstash', :type => 'class' do
           context 'with specified version' do
 
             let :params do {
-              :version => '1.0'
+              :version => '2.1'
             } end
 
             it { should contain_class('logstash::package') }
             it { should contain_logstash__package__install('logstash') }
-            it { should contain_package('logstash').with(:ensure => '1.0') }
+            it { should contain_package('logstash').with(:ensure => '2.1') }
           end
 
           context 'with auto upgrade enabled' do
@@ -165,13 +165,13 @@ describe 'logstash', :type => 'class' do
 
             let :params do {
               :install_contrib => true,
-              :contrib_version => '1.0'
+              :contrib_version => '2.1'
             } end
 
             it { should contain_class('logstash::package') }
             it { should contain_logstash__package__install('logstash') }
             it { should contain_logstash__package__install('logstash-contrib') }
-            it { should contain_package('logstash-contrib').with(:ensure => '1.0') }
+            it { should contain_package('logstash-contrib').with(:ensure => '2.1') }
           end
 
           context 'with auto upgrade enabled' do
@@ -375,11 +375,11 @@ describe 'logstash', :type => 'class' do
 
           let :params do {
             :manage_repo => true,
-            :repo_version => '1.3'
+            :repo_version => '2.1'
           } end
 
           it { should contain_class('logstash::repo').that_requires('Anchor[logstash::begin]') }
-          it { should contain_yumrepo('logstash').with(:baseurl => 'http://packages.elasticsearch.org/logstash/1.3/centos', :gpgkey => 'http://packages.elasticsearch.org/GPG-KEY-elasticsearch', :enabled => 1) }
+          it { should contain_yumrepo('logstash').with(:baseurl => 'http://packages.elasticsearch.org/logstash/2.1/centos', :gpgkey => 'http://packages.elasticsearch.org/GPG-KEY-elasticsearch', :enabled => 1) }
 
         end
 
